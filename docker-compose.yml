@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  external:
+    build:
+      context: https://github.com/docker-multiple-app-test-example/external.git
+    depends_on:
+      - internal
+    ports:
+      - "8888:8888"
+  internal:
+    build:
+      context: https://github.com/docker-multiple-app-test-example/internal.git
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+
