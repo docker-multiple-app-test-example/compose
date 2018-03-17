@@ -7,7 +7,7 @@ services:
     depends_on:
       - internal
     ports:
-      - "8888:8888"
+      - "${APP_PORT}:8888"
   internal:
     build:
       context: https://github.com/docker-multiple-app-test-example/internal.git
@@ -15,7 +15,3 @@ services:
       - redis
   redis:
     image: redis
-    ports:
-      - "6379:6379"
-
-
