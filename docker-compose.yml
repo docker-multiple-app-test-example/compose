@@ -3,14 +3,14 @@ version: '3'
 services:
   external:
     build:
-      context: https://github.com/docker-multiple-app-test-example/external.git
+      context: https://github.com/docker-multiple-app-test-example/external.git#${EXTERNAL_BRANCH}
     depends_on:
       - internal
     ports:
       - "${APP_PORT}:8888"
   internal:
     build:
-      context: https://github.com/docker-multiple-app-test-example/internal.git
+      context: https://github.com/docker-multiple-app-test-example/internal.git#${INTERNAL_BRANCH}
     depends_on:
       - redis
   redis:
